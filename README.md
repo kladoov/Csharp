@@ -1,2 +1,3 @@
 # C#
-I'm work in VSL, with C#
+IDE - Visual Studio Community
+- Windows Forms (.NET Framework)
