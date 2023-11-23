@@ -1,0 +1,51 @@
+﻿<Window x:Class="TextoEstiloBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextoEstiloBinding"
+        mc:Ignorable="d"
+        Title="Style Text" Height="350" Width="700">
+    <Grid>
+        <Slider x:Name="sldProgreso" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500" Minimum="1" Maximum="40" Value="20" Margin="0,30,0,0" />
+        
+        <Label x:Name="lblTexto" Content="Esto es un ejemplo de Binding" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0"
+               FontSize="{Binding ElementName=sldProgreso, Path=Value}"
+               Foreground="{Binding ElementName=listColores, Path=SelectedItem.Content}"
+               FontFamily="{Binding ElementName=listFuentes, Path=SelectedItem.Content}"
+               />
+        <Label Content="Tamaño exacto:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,130,590,0"/>
+
+        <Button x:Name="btnPequeño" Content="Pequeño" Width="70" Height="30" HorizontalAlignment="Left" Margin="10,0,0,0" Click="btnPequeño_Click"/>
+        <Button x:Name="btnNormal" Content="Normal" Width="70" Height="30" HorizontalAlignment="Left" Margin="90,0,0,0" Click="btnNormal_Click"/>
+        <Button x:Name="btnGrande" Content="Grande" Width="70" Height="30" HorizontalAlignment="Left" Margin="170,0,0,0" Click="btnGrande_Click"/>
+
+        <TextBox x:Name="txtTamañoExacto" Height="20" Width="50" Margin="0,130,400,0" IsEnabled="False"
+                 Text="{Binding ElementName=sldProgreso, Path=Value, Mode=TwoWay}"/>
+
+        <ListBox x:Name="listColores" Height="150" Width="120" HorizontalAlignment="Right" Margin="0,100,250,0">
+            <ListBoxItem Content="Red"/>
+            <ListBoxItem Content="Blue"/>
+            <ListBoxItem Content="Green"/>
+            <ListBoxItem Content="Yellow"/>
+            <ListBoxItem Content="Purple"/>
+            <ListBoxItem Content="Pink"/>
+            <ListBoxItem Content="Orange"/>
+            <ListBoxItem Content="Gray"/>
+        </ListBox>
+
+        <ListBox x:Name="listFuentes" Height="150" Width="120" HorizontalAlignment="Right" Margin="0,100,100,0">
+            <ListBoxItem Content="Calibri"/>
+            <ListBoxItem Content="Arial"/>
+            <ListBoxItem Content="Arial Black"/>
+            <ListBoxItem Content="Times New Roman"/>
+            <ListBoxItem Content="Verdana"/>
+            <ListBoxItem Content="Tahoma"/>
+            <ListBoxItem Content="Courier New"/>
+            <ListBoxItem Content="Georgia"/>
+            <ListBoxItem Content="Impact"/>
+            <ListBoxItem Content="Comic Sans MS"/>
+        </ListBox>
+
+    </Grid>
+</Window>
